@@ -59,14 +59,14 @@ custom:
 package:
   individually: false
   patterns:
+    # importing from generated client
     - 'generated/client/schema.prisma'
     - '!generated/client/libquery_engine-*'
     - 'generated/client/libquery_engine-rhel-*'
     - '!node_modules/prisma/libquery_engine-*'
     - '!node_modules/@prisma/engines/**'
-
-# from docs
-#    - '!node_modules/.prisma/client/libquery_engine-*'
-#    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
-#    - '!node_modules/prisma/libquery_engine-*'
-#    - '!node_modules/@prisma/engines/**'
+    # importing from node_modules
+    - '!node_modules/.prisma/client/libquery_engine-*'
+    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+    - '!node_modules/prisma/libquery_engine-*'
+    - '!node_modules/@prisma/engines/**'
