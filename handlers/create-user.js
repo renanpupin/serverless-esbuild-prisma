@@ -1,10 +1,4 @@
-// const {
-//     Prisma,
-//     PrismaClient
-// } = require('@prisma/client')
-import { PrismaClient, Prisma } from "../generated/client";
-
-const prisma = new PrismaClient()
+import {prisma} from '../utils/prisma'
 
 exports.handler = async (event, context, callback) => {
     try {

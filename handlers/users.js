@@ -1,13 +1,4 @@
-// const {
-//     Prisma,
-//     PrismaClient
-// } = require('@prisma/client')
-import { PrismaClient, Prisma } from "../generated/client";
-const prisma = new PrismaClient({
-    // datasources: {
-    //     db: { url: process.env.NODE_ENV === 'test' ? DB_URL_TEST : DB_URL },
-    // },
-})
+import {prisma} from '../utils/prisma'
 
 module.exports.handler = async (event, context, callback) => {
     try {
