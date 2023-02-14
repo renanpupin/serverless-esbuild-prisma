@@ -1,6 +1,7 @@
 before_compile:
   - echo "Before compile"
-  - n 14.17.0
+  - n 16.16.0
+  - printenv
 
 before_build:
   - echo "Before build"
