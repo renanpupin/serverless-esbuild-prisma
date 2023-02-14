@@ -48,9 +48,16 @@ functions:
           method: GET
           path: /posts
 
+custom:
+  esbuild:
+    minify: true
+    bundle: true
+    sourcemap: true
+    keepNames: true
+
 # only include the Prisma binary required on AWS Lambda while packaging
 package:
-  individually: true
+  individually: false
   patterns:
     - 'generated/client/schema.prisma'
     - '!generated/client/libquery_engine-*'
