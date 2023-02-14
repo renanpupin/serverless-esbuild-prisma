@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "dotenv -e .env -- serverless offline",
+    "test": "dotenv -e .env.test -- vitest",
+    "coverage": "dotenv -e .env.test -- vitest run --coverage",
     "generate:schema:proxy": "npx prisma generate --data-proxy",
-    "generate:schema": "npx prisma generate",
-    "dev": "serverless offline",
-    "dev:cache": "serverless offline --allowCache"
+    "generate:schema": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -19,10 +19,12 @@
     "prisma": "^4.10.1",
     "serverless": "3.26.0",
     "serverless-esbuild": "^1.37.3",
-    "serverless-offline": "^12.0.4"
+    "serverless-offline": "^12.0.4",
+    "vitest": "^0.28.5"
   },
   "dependencies": {
     "@prisma/client": "^4.10.1",
+    "dotenv-cli": "^7.0.0",
     "serverless-dotenv-plugin": "^4.0.2"
   }
 }

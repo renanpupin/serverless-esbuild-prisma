@@ -12,7 +12,7 @@ provider:
 #    DATABASE_URL: ${env:DATABASE_URL, 'mongodb://localhost:27017/sls-test'}
 
 plugins:
-  - serverless-dotenv-plugin
+#  - serverless-dotenv-plugin
   - serverless-esbuild
   - serverless-offline
 
