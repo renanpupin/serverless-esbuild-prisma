@@ -1,0 +1,56 @@
+service: serverless-esbuild-prisma
+
+frameworkVersion: '3.26.0'
+configValidationMode: error # The default is warn.
+
+provider:
+  name: aws
+  region: sa-east-1
+  runtime: nodejs16.x
+  environment:
+    ENV: ${env:ENV, 'development'}
+#    DATABASE_URL: ${env:DATABASE_URL, 'mongodb://localhost:27017/sls-test'}
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+functions:
+  status:
+    handler: handlers/status.handler
+    events:
+      - http:
+          method: GET
+          path: /
+  seed:
+    handler: handlers/seed.handler
+    events:
+      - http:
+          method: GET
+          path: /seed
+  getUsers:
+    handler: handlers/users.handler
+    events:
+      - http:
+          method: GET
+          path: /users
+  createUser:
+    handler: handlers/create-user.handler
+    events:
+      - http:
+          method: POST
+          path: /users
+  getPosts:
+    handler: handlers/posts.handler
+    events:
+      - http:
+          method: GET
+          path: /posts
+
+# only include the Prisma binary required on AWS Lambda while packaging
+package:
+  patterns:
+    - '!node_modules/.prisma/client/libquery_engine-*'
+    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+    - '!node_modules/prisma/libquery_engine-*'
+    - '!node_modules/@prisma/engines/**'

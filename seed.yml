@@ -1,0 +1,8 @@
+before_compile:
+  - echo "Before compile"
+  - n 14.17.0
+
+before_build:
+  - echo "Before build"
+#  - cp prisma/schema.prisma ./
+#  - npx prisma generate --schema=src/generated/client/schema.prisma
