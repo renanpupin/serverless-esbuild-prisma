@@ -7,3 +7,4 @@ src/generated/
 .idea/
 .serverless
 .esbuild
+#generated/
