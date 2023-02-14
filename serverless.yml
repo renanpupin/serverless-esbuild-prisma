@@ -9,7 +9,7 @@ provider:
   runtime: nodejs16.x
   environment:
     ENV: ${env:ENV, 'development'}
-#    DATABASE_URL: ${env:DATABASE_URL, 'mongodb://localhost:27017/sls-test'}
+    DATABASE_URL: ${env:DATABASE_URL}
 
 plugins:
 #  - serverless-dotenv-plugin

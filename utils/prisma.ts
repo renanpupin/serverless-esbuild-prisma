@@ -1,8 +1,9 @@
-// const {
-//     Prisma,
-//     PrismaClient
-// } = require('@prisma/client')
-import { PrismaClient, Prisma } from "../generated/client";
+const {
+    Prisma,
+    PrismaClient
+} = require('@prisma/client')
+
+// import { PrismaClient, Prisma } from "../generated/client";
 
 export const prisma = new PrismaClient({
     // datasources: {
