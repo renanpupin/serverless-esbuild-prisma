@@ -1,7 +1,9 @@
-const {
-    Prisma,
-    PrismaClient
-} = require('@prisma/client')
+// const {
+//     Prisma,
+//     PrismaClient
+// } = require('@prisma/client')
+import { PrismaClient, Prisma } from "../generated/client";
+
 const prisma = new PrismaClient()
 
 exports.handler = async (event, context, callback) => {
@@ -30,3 +32,4 @@ exports.handler = async (event, context, callback) => {
         console.error(e)
         return { statusCode: 500 }
     }
+}

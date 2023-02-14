@@ -1,7 +1,11 @@
-const { PrismaClient } = require('@prisma/client')
+// const {
+//     Prisma,
+//     PrismaClient
+// } = require('@prisma/client')
+import { PrismaClient, Prisma } from "../generated/client";
 const prisma = new PrismaClient()
 
-exports.handler = async (event, context, callback) => {
+module.exports.handler = async (event, context, callback) => {
     try {
         const users = await prisma.user.findMany({
             include: { profile: true }
@@ -9,7 +13,10 @@ exports.handler = async (event, context, callback) => {
         return {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(users)
+            body: JSON.stringify({
+                users,
+                message: 'successs'
+            })
         }
     } catch (error) {
         console.error(error)

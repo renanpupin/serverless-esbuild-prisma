@@ -13,7 +13,7 @@ provider:
 
 plugins:
   - serverless-dotenv-plugin
-#  - serverless-esbuild
+  - serverless-esbuild
   - serverless-offline
 
 functions:
@@ -50,8 +50,16 @@ functions:
 
 # only include the Prisma binary required on AWS Lambda while packaging
 package:
+  individually: true
   patterns:
-    - '!node_modules/.prisma/client/libquery_engine-*'
-    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+    - 'generated/client/schema.prisma'
+    - '!generated/client/libquery_engine-*'
+    - 'generated/client/libquery_engine-rhel-*'
     - '!node_modules/prisma/libquery_engine-*'
     - '!node_modules/@prisma/engines/**'
+
+# from docs
+#    - '!node_modules/.prisma/client/libquery_engine-*'
+#    - 'node_modules/.prisma/client/libquery_engine-rhel-*'
+#    - '!node_modules/prisma/libquery_engine-*'
+#    - '!node_modules/@prisma/engines/**'
